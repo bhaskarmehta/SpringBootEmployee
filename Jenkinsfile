@@ -33,8 +33,8 @@ pipeline {
                 withCredentials([string(credentialsId: 'DOCKER_REGISTRY_PASS', variable: 'DOCKER_REGISTRY_PASS')]) {
                      sh 'docker login -u bhasmeht -p "${DOCKER_REGISTRY_PASS}"'
                      sh 'mvn -B -DskipTests clean package'
-                     sh 'docker build -t $REGISTRYURL/java-app:1.1 . '
-                     sh 'docker push $REGISTRYURL/java-app:1.1'
+                     sh 'docker build -t $REGISTRYURL/java-app:1.2 . '
+                     sh 'docker push $REGISTRYURL/java-app:1.2'
                 }
             }
         }
