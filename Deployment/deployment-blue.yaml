@@ -4,15 +4,18 @@ metadata:
   name: my-app-deployment
   labels:
     app: my-app
+    env: blue
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: my-app
+      env: blue
   template:
     metadata:
       labels:
         app: my-app
+        env: blue
     spec:
       containers:
       - name: my-app-container
