@@ -33,7 +33,7 @@ pipeline {
                      sh 'docker login -u bhasmeht -p "${DOCKER_REGISTRY_PASS}"'
                      sh 'mvn -B -DskipTests clean package'
                      sh 'docker build -t $REGISTRYURL/java-app:1.0 . '
-                     sh 'docker  image push $REGISTRYURL/java-app:1.0'
+                     sh 'docker push $REGISTRYURL/java-app:1.0'
                 }
                 
                 
