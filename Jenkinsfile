@@ -24,7 +24,7 @@ pipeline {
                 echo "M2_HOME = /opt/maven"
             }
         }
-
+        
         stage('Build') {
             steps {
                 withCredentials([string(credentialsId: 'DOCKER_REGISTRY_PASS', variable: 'DOCKER_REGISTRY_PASS')]) {
@@ -36,12 +36,31 @@ pipeline {
             }
         }
 
+        stage('Unit Test'){
+            steps{
+                echo "Unit Testing is done"
+            }
+        }
+
+        stage('Sonarqube Analysis'){
+            steps{
+                echo "Sonarqube is done"
+            }
+        }
+
+        stage('Sonarqube QG'){
+            steps{
+                echo "Sonarqube QG is done"
+            }
+        }
+
         stage('Configure Kubectl') {
             steps {
                 withCredentials([file(credentialsId: 'eks-kubeconfig', variable: 'KUBECONFIG')]) {
                     sh 'cp $KUBECONFIG /tmp/kubeconfig'
 
                     withEnv(["KUBECONFIG=${KUBECONFIG_PATH}"]) {
+                        sh 'aws eks update-kubeconfig --region us-east-1 --name mycluster'
                         sh 'kubectl get nodes'
                     }
                 }
