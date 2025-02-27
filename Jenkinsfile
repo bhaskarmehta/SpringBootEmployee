@@ -53,10 +53,10 @@ pipeline {
                 script {
                     if (params.DEPLOYMENT_VERSION == 'blue') {
                         echo 'Deploying Blue Version'
-                        sh 'kubectl apply -f BlueDeployments'
+                        sh 'kubectl apply -f Deployment/BlueDeployments'
                     } else if (params.DEPLOYMENT_VERSION == 'green') {
                         echo 'Deploying Green Version'
-                        sh 'kubectl apply -f GreenDeployments'
+                        sh 'kubectl apply -f Deployment/GreenDeployments'
                     }
                 }
             }
