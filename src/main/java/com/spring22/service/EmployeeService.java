@@ -45,7 +45,7 @@ public class EmployeeService {
         return empJPA.findByName(name);
     }
 
-    // public Employee getEmployeeBySpecificBranchName(String branch){
-    //     return empJPA.findBySpecificBranchName(branch);
-    // }
+    public List<Employee> getEmployeeBySpecificBranchName(String branch){
+        return empJPA.findBySpecificBranchName(branch);
+    }
 }

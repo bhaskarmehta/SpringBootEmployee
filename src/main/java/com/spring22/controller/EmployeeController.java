@@ -52,8 +52,8 @@ public class EmployeeController {
         return svc.findEmployeeByName(name);
     }
 
-    // @GetMapping("/getEmployeeBySpecificBranchName/{branch}")
-    // public Employee getEmployeeBySpecificBranchName(@PathVariable String branch){
-    //     return svc.getEmployeeBySpecificBranchName(branch);
-    // }
+    @GetMapping("/getEmployeeBySpecificBranchName/{branch}")
+    public List<Employee> getEmployeeBySpecificBranchName(@PathVariable String branch){
+        return svc.getEmployeeBySpecificBranchName(branch);
+    }
 }

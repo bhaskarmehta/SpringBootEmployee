@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public interface EmployeeJPAInterface extends JpaRepository<Employee,Integer> {
     List<Employee> findByName(String name);
 
-    // @Query(value = "select * from employees where branch = :br",nativeQuery=true)
-    // Employee  findBySpecificBranchName(@Param("br") String br);
+    @Query(value = "select * from employees where branch = :br",nativeQuery=true)
+    List<Employee>  findBySpecificBranchName(@Param("br") String br);
 
 }
